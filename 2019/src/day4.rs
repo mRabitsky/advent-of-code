@@ -1,13 +1,13 @@
 use core::ops::RangeInclusive;
 
-fn main() {
+pub(crate) fn main() {
     let range = 359282..=820401;
     println!("--- Day 4: Secure Container ---");
-    println!("Part One: {:#?}", PART_ONE(&range));
-    println!("Part Two: {:#?}", PART_TWO(&range));
+    println!("Part One: {:#?}", part_one(&range));
+    println!("Part Two: {:#?}", part_two(&range));
 }
 
-fn PART_ONE(r: &RangeInclusive<usize>) -> usize {
+fn part_one(r: &RangeInclusive<usize>) -> usize {
     let mut counter: usize = 0;
     for a in 3..8 {
         for b in 3..10 {
@@ -42,7 +42,7 @@ fn PART_ONE(r: &RangeInclusive<usize>) -> usize {
     
     counter
 }
-fn PART_TWO(r: &RangeInclusive<usize>) -> usize {
+fn part_two(r: &RangeInclusive<usize>) -> usize {
     let mut counter: usize = 0;
     for a in 3..8 {
         for b in 3..10 {

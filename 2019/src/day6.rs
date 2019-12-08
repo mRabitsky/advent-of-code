@@ -4,8 +4,8 @@ use std::io::{BufRead, BufReader, Error};
 use petgraph::algo::astar;
 use petgraph::graphmap::{DiGraphMap, UnGraphMap};
 
-fn main() -> Result<(), Error> {
-    let strings: Vec<(String, String)> = BufReader::new(File::open("input-day6.txt")?)
+pub(crate) fn main() -> Result<(), Error> {
+    let strings: Vec<(String, String)> = BufReader::new(File::open("inputs/day6.txt")?)
         .lines()
         .map(|l| l.unwrap()
             .split(")")
