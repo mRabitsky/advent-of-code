@@ -1,8 +1,8 @@
 import sys
 
-from days import day1
+from days import day1, day2
 
-days = [[day1.part1, day1.part2]]
+days = [[day1.part1, day1.part2], [day2.part1, day2.part2]]
 
 if __name__ == '__main__':
     day: int = int(sys.argv[1].strip()) - 1
