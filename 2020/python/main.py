@@ -1,8 +1,11 @@
 import sys
 
-from days import day1, day2, day3
+from days import day1, day2, day3, day4
 
-days = [[day1.part1, day1.part2], [day2.part1, day2.part2], [day3.part1, day3.part2]]
+days = [[day1.part1, day1.part2],
+        [day2.part1, day2.part2],
+        [day3.part1, day3.part2],
+        [day4.part1, day4.part2]]
 
 if __name__ == '__main__':
     day: int = int(sys.argv[1].strip()) - 1
