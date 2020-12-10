@@ -1025,12 +1025,12 @@ def part2():
         for j in range(i, len(ls)):
             s += ls[j]
             if s == P1:
-                return min(ls[i:j]) + max(ls[i:j])
+                return min(ls[i:j+1]) + max(ls[i:j+1])
             if s > P1:
                 break
 
 
-def fencing_movement():
+def fencing_footwork():
     """
     Okay so I'm not sure if this is strictly a linear function since the "inchworm" can both advance and retreat.  That
     being said, it's definitely massively faster than the quadratic implementation of part two above.  On my computer it
@@ -1039,13 +1039,14 @@ def fencing_movement():
     :return: sum of the smallest and largest elements of the contiguous subspace in `ls` that sum to `P1`.
     """
 
+    P1 = int(part1())
     start, end, m = 0, 0, 0
     retreating = False
     while end < len(ls):
         if not retreating:  # increment
             m += ls[end]
         if m == P1:
-            return min(ls[start:end]) + max(ls[start:end])
+            return min(ls[start:end+1]) + max(ls[start:end+1])
         if m > P1:
             if retreating:  # retreat
                 m -= ls[end]
