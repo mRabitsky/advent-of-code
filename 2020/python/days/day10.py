@@ -122,10 +122,10 @@ def part1():
 
 
 def part2():
-    ns = list(reversed(list(nx.topological_sort(dg))))
+    ns = list(reversed(ls))
     lookup = {ls[-1]: 1}
 
-    for i in range(1, len(ns), 1):
+    for i in range(1, len(ns)):
         lookup[ns[i]] = sum([lookup[n] for n in dg[ns[i]]])
 
     return lookup[0]
