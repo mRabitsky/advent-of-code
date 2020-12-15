@@ -1,11 +1,9 @@
 input = [10, 16, 6, 0, 1, 17]
-seen = {}
 
 
 def do(stop):
     print_interval = stop / 10
-    for i, n in enumerate(input):
-        seen[n] = (i + 1, -1)
+    seen = {n: (i + 1, -1) for i, n in enumerate(input)}
     turn = len(input)
     prev = input[-1]
     while turn != stop:
