@@ -1,6 +1,6 @@
 import sys
 
-from days import day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21
+from days import day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22
 
 days = [[day1.part1, day1.part2],
         [day2.part1, day2.part2],
@@ -22,7 +22,8 @@ days = [[day1.part1, day1.part2],
         [day18.part1, day18.part2],
         [day19.part1, day19.part2],
         [day20.part1, day20.part2],
-        [day21.part1, day21.part2]]
+        [day21.part1, day21.part2],
+        [day22.part1, day22.part2]]
 
 if __name__ == '__main__':
     day: int = int(sys.argv[1].strip()) - 1
