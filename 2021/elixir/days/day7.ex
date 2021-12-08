@@ -6,15 +6,15 @@ defmodule Day7 do
          |> List.first
          |> Enum.sort
 
-  def p1() do
-    median = Enum.at(@input, div(length(@input), 2))
-    @input |> Enum.map(&(abs(&1 - median))) |> Enum.sum
-  end
+  defp calcFuelCosts(cs, p, f), do: Enum.map(cs, &(f.(abs(&1 - p)))) |> Enum.sum
+
+  def p1(), do: calcFuelCosts(@input, Enum.at(@input, div(length(@input), 2)), &Function.identity/1)
   def p2() do
     mean = Enum.sum(@input) / length(@input)
+    f = &(&1 * (&1 + 1) / 2)
     min(
-      Enum.map(@input, &(abs(&1 - floor(mean)))) |> Enum.map(&(&1 * (&1 + 1) / 2)) |> Enum.sum,
-      Enum.map(@input, &(abs(&1 - ceil(mean)))) |> Enum.map(&(&1 * (&1 + 1) / 2)) |> Enum.sum
+      calcFuelCosts(@input, floor(mean), f),
+      calcFuelCosts(@input, ceil(mean), f)
     ) |> round
   end
 end
