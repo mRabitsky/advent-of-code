@@ -26,7 +26,7 @@ defmodule Day10 do
   end)))
 
   def p1(), do: parse()
-                |> Enum.filter(&Kernel.is_number/1)  # errored out
+                |> Enum.filter(&Kernel.is_number/1)  # invalid
                 |> Enum.sum
 
   def p2(), do: parse()
