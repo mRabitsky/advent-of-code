@@ -14,7 +14,7 @@ if __name__ == '__main__':
             '\n',
             eval(f'day{day}.part1()'),
             '\n\n',
-            '=== p2 ==='
+            '=== p2 ===',
             '\n',
             eval(f'day{day}.part2()'),
             sep=''
