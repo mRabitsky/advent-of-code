@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 more-itertools = "*"
+numpy = "*"
+scikit-image = "*"
 
 [dev-packages]
 
