@@ -1,4 +1,3 @@
-import math
 import numpy as np
 
 instrs = '''
@@ -2003,33 +2002,24 @@ R 16
 L 5
 D 14
 '''.strip().splitlines()
-instrs = [instr.split() for instr in instrs]
 DIR_VEC = {
     'U': [0, 1],
     'D': [0, -1],
     'L': [-1, 0],
     'R': [1, 0],
-    0: [1, 0],
-    math.pi / 2: [0, 1],
-    math.pi: [-1, 0],
-    -math.pi / 2: [0, -1],
 }
 
 
 def _play_snake(length: int) -> int:
     seen = {(0, 0)}
     snake = np.zeros((length, 2))
-    for [d, n] in instrs:
-        for _ in range(int(n)):
-            snake[0] += DIR_VEC[d]
+    for instr in instrs:
+        for _ in range(int(instr[2:])):
+            snake[0] += DIR_VEC[instr[0]]
             for i in range(1, length):
                 v = snake[i - 1] - snake[i]
-                if abs(v[0]) > 1 or abs(v[1]) > 1:
-                    θ = math.atan2(*v[::-1])
-                    snake[i] += DIR_VEC.get(θ) or [  # lookup for cardinals faster than rounding away the fp errors
-                        math.copysign(math.ceil(math.fabs(n)), n)
-                        for n in [math.cos(θ), math.sin(θ)]
-                    ]
+                if (np.abs(v) > 1).any():
+                    snake[i] += np.sign(v)
             seen.add(tuple(snake[-1]))
 
     return len(seen)
