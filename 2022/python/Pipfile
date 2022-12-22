@@ -5,7 +5,9 @@ name = "pypi"
 
 [packages]
 more-itertools = "*"
+networkx = "*"
 numpy = "*"
+ortools = "*"
 scikit-image = "*"
 
 [dev-packages]
