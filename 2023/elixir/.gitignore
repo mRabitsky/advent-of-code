@@ -1,0 +1,12 @@
+/.fetch/
+/.idea/
+/_build/
+/cover/
+/deps/
+/doc/
+/inputs/
+/tmp/
+
+erl_crash.dump
+*.ez
+aoc-*.tar
