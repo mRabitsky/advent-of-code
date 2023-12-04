@@ -1,6 +1,7 @@
 defmodule Day2 do
   import Utils
 
+  @spec parse(binary) :: %{required(binary) => non_neg_integer}
   defp parse(str), do: Regex.scan(~r/(\d+) (red|green|blue)/, str, capture: :all_but_first)
                        |> Enum.map(fn [n, c] -> %{c => String.to_integer(n)} end)
                        |> Enum.reduce(
@@ -8,6 +9,7 @@ defmodule Day2 do
                             &(Map.merge(&1, &2, fn _, a, b -> max(a, b) end))
                           )
 
+  @spec p1(binary) :: non_neg_integer
   def p1(input), do: as_lines(input)
                      |> Enum.map(&parse/1)
                      |> Stream.with_index(1)
@@ -15,6 +17,7 @@ defmodule Day2 do
                      |> Stream.map(fn {_, i} -> i end)
                      |> Enum.sum
 
+  @spec p2(binary) :: non_neg_integer
   def p2(input), do: as_lines(input)
                      |> Enum.map(&parse/1)
                      |> Enum.map(&(Map.values(&1) |> Enum.product))

@@ -7,7 +7,8 @@ defmodule AoC.MixProject do
       version: "0.1.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      dialyzer: [flags: [:error_handling, :extra_return, :underspecs, :unmatched_returns], plt_add_apps: [:mix]]
     ]
   end
 
@@ -18,6 +19,8 @@ defmodule AoC.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
+    ]
   end
 end
